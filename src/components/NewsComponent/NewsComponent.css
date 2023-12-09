@@ -1,0 +1,40 @@
+.each-news-container {
+  position: relative;
+  top: 5%;
+  width: 95%;
+  min-height: 34%;
+  margin-bottom: 25px;
+  display: flex;
+
+  box-shadow: 1px 1px 5px 1px lightgray;
+}
+.each-news-img {
+  padding: 10px;
+  width: 320px;
+  height: 230px;
+}
+.each-news-text {
+  position: relative;
+  bottom: 5%;
+  padding-left: 10px;
+}
+
+.each-news-text h1 {
+  color: #85736b;
+  font-weight: 400;
+}
+.each-news-text span {
+  color: #85736b;
+  font-weight: 100;
+}
+.each-news-text p {
+  color: #85736b;
+  position: relative;
+  top: 20%;
+}
+
+.each-news-text a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}

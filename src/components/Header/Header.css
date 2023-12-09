@@ -1,0 +1,12 @@
+.Header-redirect {
+  width: 10%;
+  background-color: white;
+  border: none;
+}
+.Header-redirect:hover {
+  cursor: pointer;
+}
+
+.Header-Image {
+  width: 100%;
+}

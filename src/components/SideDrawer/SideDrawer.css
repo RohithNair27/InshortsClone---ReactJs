@@ -1,0 +1,62 @@
+.SideDrawer-container {
+  padding: 0.5%;
+  background-color: #303036;
+  position: fixed;
+  z-index: 10001;
+  height: 100%;
+  width: 220px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.category-button {
+  background-color: #303036;
+  color: white;
+  margin-right: 5px;
+  height: 50px;
+  width: 90%;
+  border: none;
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+}
+.category-button.selected {
+  /* Styles for selected buttons */
+  background-color: #808290;
+}
+.Categories-container > button:hover {
+  background-color: #4a4a4b;
+  cursor: pointer;
+}
+.Categories-container p {
+  color: #7d7d7e;
+}
+
+.Language-container {
+  border-bottom: 1px #808290 solid;
+  margin: 5px;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.languageButton {
+  background-color: #303036;
+  color: white;
+  width: 40%;
+  height: 50%;
+  border: 1px #808290 solid;
+}
+.languageButtonselected {
+  background-color: #808290;
+  color: white;
+  width: 40%;
+  height: 50%;
+  border: 1px #808290 solid;
+}
+.Language-container > button:hover {
+  cursor: pointer;
+}
+ul {
+  list-style-type: none;
+}

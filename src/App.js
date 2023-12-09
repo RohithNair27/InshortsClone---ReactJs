@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import Header from "./components/Header/Header";
+import DownloadAppBar from "./components/DownloadAppBar/DownloadAppBar";
+import NewsComponent from "./components/NewsComponent/NewsComponent";
+import SideDrawer from "./components/SideDrawer/SideDrawer";
+import { DataFetchingContext } from "./Context/DataFetchingContext/DataFetchingContext";
+import "./App.css";
 
 function App() {
+  const { News } = useContext(DataFetchingContext);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <SideDrawer />
+      <header className="news-header">
+        <Header />
       </header>
+      <main className="news-container">
+        <DownloadAppBar />
+        {News.map((element) => {
+          return <NewsComponent newsData={element} />;
+        })}
+      </main>
     </div>
   );
 }
