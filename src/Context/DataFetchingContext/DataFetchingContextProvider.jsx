@@ -5,10 +5,11 @@ import { Top_headlines } from "../../APIs/API";
 import axios from "axios";
 function DataFetchingContextProvider({ children }) {
   const [categories, setCategories] = useState("Business");
-
+  const [loading, setLoading] = useState(true);
   const [News, setNews] = useState([]);
 
   const changeCategories = (category) => {
+    setLoading(true);
     setCategories(category);
     getTopHeadline(category.toLowerCase());
   };
@@ -16,7 +17,9 @@ function DataFetchingContextProvider({ children }) {
     axios
       .get(Top_headlines(Data, "in"))
       .then((news) => {
+        setLoading(true);
         setNews(news.data.articles);
+        setLoading(false);
       })
       .catch(() => {
         console.log("no news");
@@ -29,7 +32,7 @@ function DataFetchingContextProvider({ children }) {
 
   return (
     <DataFetchingContext.Provider
-      value={{ News, categories, changeCategories }}
+      value={{ News, categories, changeCategories, loading }}
     >
       {children}
     </DataFetchingContext.Provider>

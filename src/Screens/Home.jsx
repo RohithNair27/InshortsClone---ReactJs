@@ -5,10 +5,11 @@ import DownloadAppBar from "../components/DownloadAppBar/DownloadAppBar";
 import NewsComponent from "../components/NewsComponent/NewsComponent";
 import SideDrawer from "../components/SideDrawer/SideDrawer";
 import { DataFetchingContext } from "../Context/DataFetchingContext/DataFetchingContext";
+
 import "../App.css";
 
 function Home() {
-  const { News } = useContext(DataFetchingContext);
+  const { News, loading } = useContext(DataFetchingContext);
   return (
     <div className="App">
       <SideDrawer />
@@ -17,9 +18,16 @@ function Home() {
       </header>
       <main className="news-container">
         <DownloadAppBar />
-        {News.map((element) => {
-          return <NewsComponent newsData={element} />;
-        })}
+        {loading ? (
+          <>
+            <NewsComponent loading={loading} />
+            <NewsComponent loading={loading} />
+          </>
+        ) : (
+          News.map((element) => (
+            <NewsComponent key={element.id} newsData={element} />
+          ))
+        )}
       </main>
     </div>
   );
