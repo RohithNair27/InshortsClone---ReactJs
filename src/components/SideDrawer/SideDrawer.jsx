@@ -5,11 +5,14 @@ import { SettingContext } from "../../Context/SettingsContext/Context";
 import "./SideDrawer.css";
 
 function SideDrawer() {
-  const { language, changeLanguage } = useContext(SettingContext);
-
+  const { language, changeLanguage, sideDrawerOpen } =
+    useContext(SettingContext);
   const { categories, changeCategories } = useContext(DataFetchingContext);
+
   return (
-    <section className="SideDrawer-container">
+    <section
+      className={`SideDrawer-container${sideDrawerOpen ? "closed" : ""}`}
+    >
       <div className="Language-container">
         <button
           onClick={() => changeLanguage(true)}
@@ -26,8 +29,8 @@ function SideDrawer() {
       </div>
 
       <div className="Categories-container">
-        <p>Categories</p>
-        <ul>
+        <span>Categories</span>
+        <ul className="Categories-list-container">
           {categoriesConstants.map((element) => {
             return (
               <li>

@@ -4,18 +4,20 @@ import Header from "../components/Header/Header";
 import DownloadAppBar from "../components/DownloadAppBar/DownloadAppBar";
 import NewsComponent from "../components/NewsComponent/NewsComponent";
 import SideDrawer from "../components/SideDrawer/SideDrawer";
+import Footer from "../components/Footer/Footer";
 import { DataFetchingContext } from "../Context/DataFetchingContext/DataFetchingContext";
+import { SettingContext } from "../Context/SettingsContext/Context";
 
 import "../App.css";
 
 function Home() {
   const { News, loading } = useContext(DataFetchingContext);
+  const { sideDrawerOpen } = useContext(SettingContext);
   return (
     <div className="App">
       <SideDrawer />
-      <header className="news-header">
-        <Header />
-      </header>
+      <Header />
+
       <main className="news-container">
         <DownloadAppBar />
         {loading ? (
@@ -28,6 +30,9 @@ function Home() {
             <NewsComponent key={element.id} newsData={element} />
           ))
         )}
+        <footer className="FooterContainer">
+          <Footer />
+        </footer>
       </main>
     </div>
   );
